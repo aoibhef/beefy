@@ -100,6 +100,13 @@ impl FungeSpace {
     pub fn max_point(&self) -> (i64, i64) {
         self.max_point
     }
+
+    pub fn in_bounds(&self, ip: &InstructionPointer) -> bool {
+        return ip.pos.0 >= self.min_point.0
+            && ip.pos.0 <= self.max_point.0
+            && ip.pos.1 >= self.min_point.1
+            && ip.pos.1 <= self.max_point.1;
+    }
 }
 
 impl fmt::Display for FungeSpace {
